@@ -30,12 +30,12 @@ test("getUrlFromHtml", () => {
     `;
 
 	expect(getUrlFromHtml(testHtml1, "https://blog.boot.dev")).toEqual([
-		"blog.boot.dev",
+		"https://blog.boot.dev",
 	]);
 	expect(getUrlFromHtml(testHtml2, "https://blog.boot.dev")).toEqual([
-		"blog.boot.dev/path",
-		"blog.boot.dev/path",
-		"blog.boot.dev/path/path1",
-		"blog.boot.dev/path/path2",
+		"https://blog.boot.dev/path",
+		"https://blog.boot.dev/path",
+		"https://blog.boot.dev/path/path1",
+		"https://blog.boot.dev/path/path2",
 	]);
 });

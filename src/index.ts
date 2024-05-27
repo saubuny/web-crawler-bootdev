@@ -1,6 +1,7 @@
 import { crawlPage } from "./crawl";
+import { printReport } from "./report";
 
-function main() {
+async function main() {
 	if (Bun.argv.length < 3) {
 		console.error("[Error] No given base URL");
 		return;
@@ -11,7 +12,7 @@ function main() {
 	}
 
 	const baseUrl = Bun.argv[2];
-	crawlPage(baseUrl);
+	printReport(await crawlPage(baseUrl));
 }
 
 main();
