@@ -11,6 +11,7 @@ function normalizeUrl(urlStr: string): string {
 }
 
 function getUrlFromHtml(htmlBody: string, baseUrl: string): string[] {
+	baseUrl = normalizeUrl(baseUrl);
 	const jsdom = new JSDOM(htmlBody);
 	const anchors = jsdom.window.document.querySelectorAll("a");
 	const urls: string[] = [];

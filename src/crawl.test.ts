@@ -29,8 +29,10 @@ test("getUrlFromHtml", () => {
     </html>
     `;
 
-	expect(getUrlFromHtml(testHtml1, "blog.boot.dev")).toEqual(["blog.boot.dev"]);
-	expect(getUrlFromHtml(testHtml2, "blog.boot.dev")).toEqual([
+	expect(getUrlFromHtml(testHtml1, "https://blog.boot.dev")).toEqual([
+		"blog.boot.dev",
+	]);
+	expect(getUrlFromHtml(testHtml2, "https://blog.boot.dev")).toEqual([
 		"blog.boot.dev/path",
 		"blog.boot.dev/path",
 		"blog.boot.dev/path/path1",
