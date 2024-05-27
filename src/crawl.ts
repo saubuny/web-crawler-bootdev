@@ -24,4 +24,31 @@ function getUrlFromHtml(htmlBody: string, baseUrl: string): string[] {
 	return urls;
 }
 
-export { normalizeUrl, getUrlFromHtml };
+// https://www.wagslane.dev/
+async function crawlPage(url: string) {
+	try {
+		const res = await fetch(url, {
+			method: "get",
+		});
+
+		if (res.status >= 400) {
+			console.error("[Error] Error code " + res.status + " during fetch");
+			return;
+		}
+
+		// Using ! bc lazy :3
+		if (!res.headers.get("content-type")!.includes("text/html")) {
+			console.error(
+				"[Error] Incorrect content-type from fetch, instead got " +
+					res.headers.get("content-type"),
+			);
+			return;
+		}
+
+		console.log(await res.text());
+	} catch (err) {
+		console.error(err);
+	}
+}
+
+export { normalizeUrl, getUrlFromHtml, crawlPage };

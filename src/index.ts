@@ -1,3 +1,5 @@
+import { crawlPage } from "./crawl";
+
 function main() {
 	if (Bun.argv.length < 3) {
 		console.error("[Error] No given base URL");
@@ -9,7 +11,7 @@ function main() {
 	}
 
 	const baseUrl = Bun.argv[2];
-	console.log(baseUrl);
+	crawlPage(baseUrl);
 }
 
 main();
